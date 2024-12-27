@@ -5,6 +5,7 @@ public class MainCharaterAnimation : MonoBehaviour
 {
     Animator _animator;
     Vector2 forward;
+
     void Start()
     {
         _animator = GetComponent<Animator>();
@@ -24,5 +25,4 @@ public class MainCharaterAnimation : MonoBehaviour
         _animator.SetFloat("X_AXIS", forward.x);
         _animator.SetFloat("Y_AXIS", forward.y);
     }
-
 }

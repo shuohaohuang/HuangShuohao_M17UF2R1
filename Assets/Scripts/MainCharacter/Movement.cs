@@ -5,7 +5,7 @@ public class Movement : MonoBehaviour
     [SerializeField]
     float speed;
 
-    Rigidbody2D _rb;
+    public Rigidbody2D _rb;
 
     void Start()
     {
@@ -16,5 +16,4 @@ public class Movement : MonoBehaviour
     {
         _rb.linearVelocity = forward * speed;
     }
-
 }
