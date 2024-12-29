@@ -11,18 +11,32 @@ public class PlayerInputs : MonoBehaviour, InputSystem_Actions.IPlayerActions
 
     public void OnAttack(InputAction.CallbackContext context)
     {
-        Debug.Log("attack");
+        if (context.performed)
+        {
+            if (inventory.GetCurrentItem() is AItems item)
+            {
+                item.Use();
+            }
+        }
     }
 
     public void OnInteract(InputAction.CallbackContext context)
     {
         if (context.started)
-            inventory.GetItem(PlaceHolder.FirstHolder());
+        {
+            inventory.GetItem(AItems.GetFirst());
+        }
     }
 
     public void OnLook(InputAction.CallbackContext context)
     {
-        // Debug.Log(context.ReadValue<Vector2>());
+        if (context.performed)
+        {
+            if (inventory.GetCurrentItem() is ARangedItem aRangedItem)
+            {
+                aRangedItem.SetDirection(context.ReadValue<Vector2>());
+            }
+        }
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -31,6 +45,11 @@ public class PlayerInputs : MonoBehaviour, InputSystem_Actions.IPlayerActions
         if (context.performed)
         {
             _animation.Moving(context.ReadValue<Vector2>());
+
+            if (inventory.GetCurrentItem() is ARangedItem aRangedItem)
+            {
+                aRangedItem.SetDirection(context.ReadValue<Vector2>());
+            }
         }
 
         if (context.canceled)
@@ -44,6 +63,7 @@ public class PlayerInputs : MonoBehaviour, InputSystem_Actions.IPlayerActions
     {
         inputs = new();
         inputs.Player.AddCallbacks(this);
+        // inputs.Direction.AddCallbacks(this);
     }
 
     private void Start()
@@ -66,7 +86,9 @@ public class PlayerInputs : MonoBehaviour, InputSystem_Actions.IPlayerActions
     public void OnSwitchLeft(InputAction.CallbackContext context)
     {
         if (context.performed)
+        {
             inventory.Switch(-1);
+        }
     }
 
     public void OnSwitchRight(InputAction.CallbackContext context)
