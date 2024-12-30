@@ -32,9 +32,9 @@ public class PlayerInputs : MonoBehaviour, InputSystem_Actions.IPlayerActions
     {
         if (context.performed)
         {
-            if (inventory.GetCurrentItem() is ARangedItem aRangedItem)
+            if (inventory.GetCurrentItem() is ITrackable trackable)
             {
-                aRangedItem.SetDirection(context.ReadValue<Vector2>());
+                trackable.Track(context.ReadValue<Vector2>());
             }
         }
     }
@@ -45,11 +45,6 @@ public class PlayerInputs : MonoBehaviour, InputSystem_Actions.IPlayerActions
         if (context.performed)
         {
             _animation.Moving(context.ReadValue<Vector2>());
-
-            if (inventory.GetCurrentItem() is ARangedItem aRangedItem)
-            {
-                aRangedItem.SetDirection(context.ReadValue<Vector2>());
-            }
         }
 
         if (context.canceled)
