@@ -19,6 +19,9 @@ public abstract class AMeleeItem : AItems, ITrackable
     protected float angryRate;
 
     [SerializeField]
+    protected float knockbackRate;
+
+    [SerializeField]
     protected float minDistance;
 
     [SerializeField]
@@ -40,7 +43,6 @@ public abstract class AMeleeItem : AItems, ITrackable
         StartCoroutine(Cooldown());
         animator.SetTrigger("ATTACK");
         DetectColliders();
-        Debug.Log("not implemented");
     }
 
     protected override void InitializeStats()
@@ -75,8 +77,11 @@ public abstract class AMeleeItem : AItems, ITrackable
             Collider2D item in Physics2D.OverlapCircleAll(ItemOrigin.position, DetectionRadius)
         )
         {
-            if (!Equals(item.GetComponent<AEnemy>(), null))
-                Debug.Log(item.name);
+            if (item.GetComponent<AEnemy>() is AEnemy enemy)
+            {
+                enemy.GetStun(stunTime, angryRate);
+                enemy.GetKnockBack(knockbackRate, (Vector2)transform.position);
+            }
         }
     }
 }

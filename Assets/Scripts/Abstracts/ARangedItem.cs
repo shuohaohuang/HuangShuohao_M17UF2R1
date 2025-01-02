@@ -17,6 +17,9 @@ public abstract class ARangedItem : AItems, ITrackable
     protected Vector2 direction;
 
     [SerializeField]
+    protected Vector2 objectivePoint;
+
+    [SerializeField]
     protected ARangedSO aRangedSO;
 
     [SerializeField]
@@ -31,13 +34,14 @@ public abstract class ARangedItem : AItems, ITrackable
         newProjectile.GetComponent<Rigidbody2D>().linearVelocity = direction * projectileSpeed;
     }
 
-    public void Track(Vector2 endPoint)
+    public virtual void Track(Vector2 endPoint)
     {
-        direction = (
-            endPoint
-            - (Vector2)Camera.main.WorldToScreenPoint(GetComponentInParent<Transform>().position)
-        ).normalized;
+        Vector2 thisScreePosition = (Vector2)
+            Camera.main.WorldToScreenPoint(transform.parent.position);
+
+        direction = (endPoint - thisScreePosition).normalized;
         transform.localPosition = direction * minDistance;
+
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle);
     }
