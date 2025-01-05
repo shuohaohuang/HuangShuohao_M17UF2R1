@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4303328307661804006}
   - component: {fileID: 5094803088098253949}
   - component: {fileID: 3610401759655858497}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Grapes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,16 +101,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1c80ccc678c28b4bbeebbb7d72b94ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useAvaible: 1
   price: 0
   cd: 0
   alias: 
   shotAudio: {fileID: 0}
-  projectile: {fileID: 0}
   projectileSpeed: 0
   satiety: 0
-  direction: {x: 0, y: 0}
   minDistance: 0
+  direction: {x: 0, y: 0}
+  objectivePoint: {x: 0, y: 0}
   aRangedSO: {fileID: 11400000, guid: ac0a65b36818e1b41aee8678f259fe01, type: 2}
+  projectile: {fileID: 0}
 --- !u!58 &3610401759655858497
 CircleCollider2D:
   m_ObjectHideFlags: 0

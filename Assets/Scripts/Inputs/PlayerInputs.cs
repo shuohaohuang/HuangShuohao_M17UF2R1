@@ -1,4 +1,5 @@
 using System;
+using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -24,7 +25,15 @@ public class PlayerInputs : MonoBehaviour, InputSystem_Actions.IPlayerActions
     {
         if (context.started)
         {
-            inventory.GetItem(AItems.GetFirst());
+            if (AItems.GetFirst() is AItems item)
+            {
+                inventory.GetItem(item);
+                return;
+            }
+            if (Ainteratacable.GetFirst() is Ainteratacable interactable)
+            {
+                interactable.Act();
+            }
         }
     }
 
@@ -53,12 +62,10 @@ public class PlayerInputs : MonoBehaviour, InputSystem_Actions.IPlayerActions
         }
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         inputs = new();
         inputs.Player.AddCallbacks(this);
-        // inputs.Direction.AddCallbacks(this);
     }
 
     private void Start()

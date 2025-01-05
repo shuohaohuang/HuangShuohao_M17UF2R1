@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5577909904170154090}
   - component: {fileID: 7218443784173820116}
   - component: {fileID: 8796371970910627891}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PomegranateProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}

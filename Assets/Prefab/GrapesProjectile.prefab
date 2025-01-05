@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8309097591950001858}
   - component: {fileID: 6730287734264762422}
   - component: {fileID: 2135746410465547688}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GrapesProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}

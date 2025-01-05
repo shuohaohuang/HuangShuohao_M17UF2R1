@@ -20,7 +20,7 @@ public class Inventory : MonoBehaviour
         images[current].transform.GetChild(0).GetComponent<Image>().sprite =
             item.GetComponent<SpriteRenderer>().sprite;
 
-        if (!ReferenceEquals(aItems[current], null))
+        if (aItems[current] == null)
         {
             aItems[current]?.transform.SetParent(null);
         }

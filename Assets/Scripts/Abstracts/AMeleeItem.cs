@@ -56,8 +56,7 @@ public abstract class AMeleeItem : AItems, ITrackable
     public void Track(Vector2 endPoint)
     {
         direction = (
-            endPoint
-            - (Vector2)Camera.main.WorldToScreenPoint(GetComponentInParent<Transform>().position)
+            endPoint - (Vector2)Camera.main.WorldToScreenPoint(transform.parent.position)
         ).normalized;
         transform.localPosition = direction * minDistance;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
