@@ -31,7 +31,7 @@ En este título no hay fin, excepto la muerte del personaje.
 - **Granadas**: No los saciarán, pero te conseguirán algo de tiempo.  
 ![Granadas](Images/Granada.png)
 - **Fluflu**: A veces hay que recurrir a medidas drásticas.  
-![Fluflu](Images/FluFLu.png)
+![Fluflu](Images/FluFlu.png)
 - **Baguette**: No recomendado.  
 ![Baguette](Images/Baguette.png)
 
