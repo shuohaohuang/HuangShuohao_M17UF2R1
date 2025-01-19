@@ -21,7 +21,6 @@ public class Inventory : MonoBehaviour
             GetItem(aItems[i]);
             if (aItems[i] != null)
                 aItems[i].SwapOut();
-            // aItems[i].gameObject.SetActive(false);
         }
         Switch(1);
     }
@@ -57,7 +56,6 @@ public class Inventory : MonoBehaviour
     {
         if (!ReferenceEquals(aItems[current], null))
         {
-            // aItems[current]?.gameObject.SetActive(false);
             aItems[current]?.SwapOut();
         }
 
@@ -76,7 +74,6 @@ public class Inventory : MonoBehaviour
 
         if (!ReferenceEquals(aItems[current], null))
         {
-            // aItems[current]?.gameObject.SetActive(true);
             aItems[current]?.SwapIn();
         }
     }

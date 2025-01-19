@@ -58,7 +58,6 @@ public class Generator : MonoBehaviour
 
         foreach (Vector2Int position in roomsPositions)
         {
-            // obstacleMap = new bool[width, height];
             Vector2Int TileOffset = new(position.x * width, position.y * height);
             Vector3 RoomOffset = new(
                 position.x * width + width / 2f,

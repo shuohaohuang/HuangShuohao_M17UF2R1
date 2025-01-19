@@ -24,15 +24,6 @@ public class PomeGranate : ARangedItem
             yield return null;
         }
     }
-
-    // public override void Use()
-    // {
-    //     if (!currentCd)
-    //         return;
-    //     StartCoroutine(Cooldown());
-    //     LaunchProjectile();
-    // }
-
     private void LaunchProjectile()
     {
         AProjectile newProjectile;

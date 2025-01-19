@@ -78,9 +78,7 @@ public class Fluflu : AItem, ITrackable
 
         //PS asignations
         var main = particle.main;
-        Debug.Log(range);
         main.startLifetime = range;
-        Debug.Log(main.startLifetime);
         audioSource.clip = onUseAudio;
         currentCd = -0.1f;
     }
