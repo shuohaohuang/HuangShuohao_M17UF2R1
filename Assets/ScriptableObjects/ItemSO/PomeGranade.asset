@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0d2fc4b3091bfb4e8d03696492871b0, type: 3}
+  m_Name: PomeGranade
+  m_EditorClassIdentifier: 
+  price: 15
+  cd: 2
+  minDistance: 1
+  alias: Pome Granade
+  sprite: {fileID: 141893073332109768, guid: b43435268887d424e9e04610a2627cd0, type: 3}
+  onUseAudio: {fileID: 8300000, guid: b448ce0c10c943944817044ab5b34434, type: 3}
+  Item: {fileID: 7788528095585142152, guid: 6bed38a0601e4604f964d67a27325ea9, type: 3}
+  satiety: 1
+  projectileSpeed: 6
+  projectile: {fileID: 7218443784173820116, guid: d1c03044c786eb4438bc5de5488d9740, type: 3}

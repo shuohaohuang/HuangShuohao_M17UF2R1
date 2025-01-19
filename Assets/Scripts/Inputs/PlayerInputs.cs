@@ -10,13 +10,23 @@ public class PlayerInputs : MonoBehaviour, InputSystem_Actions.IPlayerActions
     private MainCharaterAnimation _animation;
     private Inventory inventory;
 
+    [SerializeField]
+    ItemInspectorSO itemInspectorSO;
+
     public void OnAttack(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
-            if (inventory.GetCurrentItem() is AItems item)
+            if (inventory.GetCurrentItem() is AItem item)
             {
-                item.Use();
+                item.StartUse();
+            }
+        }
+        if (context.canceled)
+        {
+            if (inventory.GetCurrentItem() is AItem item)
+            {
+                item.StopUse();
             }
         }
     }
@@ -25,12 +35,12 @@ public class PlayerInputs : MonoBehaviour, InputSystem_Actions.IPlayerActions
     {
         if (context.started)
         {
-            if (AItems.GetFirst() is AItems item)
+            if (AItem.GetFirst() is AItem item)
             {
                 inventory.GetItem(item);
                 return;
             }
-            if (Ainteratacable.GetFirst() is Ainteratacable interactable)
+            if (AInteratacable.GetFirst() is AInteratacable interactable)
             {
                 interactable.Act();
             }
@@ -66,13 +76,9 @@ public class PlayerInputs : MonoBehaviour, InputSystem_Actions.IPlayerActions
     {
         inputs = new();
         inputs.Player.AddCallbacks(this);
-    }
-
-    private void Start()
-    {
+        inventory = GetComponent<Inventory>();
         movement = GetComponent<Movement>();
         _animation = GetComponent<MainCharaterAnimation>();
-        inventory = GetComponent<Inventory>();
     }
 
     private void OnEnable()
@@ -97,5 +103,20 @@ public class PlayerInputs : MonoBehaviour, InputSystem_Actions.IPlayerActions
     {
         if (context.performed)
             inventory.Switch(1);
+    }
+
+    public void OnInspect(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            if (inventory.GetCurrentItem() is AItem item)
+            {
+                itemInspectorSO.InpectItem(item.itemsSO);
+            }
+        }
+        if (context.canceled)
+        {
+            itemInspectorSO.EndInspect();
+        }
     }
 }

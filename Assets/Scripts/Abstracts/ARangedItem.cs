@@ -1,16 +1,10 @@
-using System.Collections;
-using Unity.Mathematics;
+using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class ARangedItem : AItems, ITrackable
+public abstract class ARangedItem : AItem, ITrackable
 {
-    [SerializeField]
     protected float projectileSpeed;
-
-    [SerializeField]
     protected int satiety;
-
-    [SerializeField]
     protected float minDistance;
 
     [SerializeField]
@@ -19,20 +13,9 @@ public abstract class ARangedItem : AItems, ITrackable
     [SerializeField]
     protected Vector2 objectivePoint;
 
-    [SerializeField]
-    protected ARangedSO aRangedSO;
+    protected AProjectile projectile;
 
-    [SerializeField]
-    protected GameObject projectile;
-
-    public override void Use()
-    {
-        if (!useAvaible)
-            return;
-        StartCoroutine(Cooldown());
-        GameObject newProjectile = Instantiate(projectile, transform.position, quaternion.identity);
-        newProjectile.GetComponent<Rigidbody2D>().linearVelocity = direction * projectileSpeed;
-    }
+    protected Queue<AProjectile> projectilePool = new Queue<AProjectile>();
 
     public virtual void Track(Vector2 endPoint)
     {
@@ -48,13 +31,43 @@ public abstract class ARangedItem : AItems, ITrackable
 
     protected override void InitializeStats()
     {
+        RangedSO aRangedSO = itemsSO as RangedSO;
         alias = aRangedSO.alias;
         price = aRangedSO.price;
         cd = aRangedSO.cd;
-        shotAudio = aRangedSO.shotAudio;
+        onUseAudio = aRangedSO.onUseAudio;
         projectileSpeed = aRangedSO.projectileSpeed;
         satiety = aRangedSO.satiety;
         minDistance = aRangedSO.minDistance;
         projectile = aRangedSO.projectile;
+        sprite = aRangedSO.sprite;
+
+        SpriteRenderer renderer = GetComponent<SpriteRenderer>();
+
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = onUseAudio;
+        currentCd = -0.1f;
+    }
+
+    public void ReturnToPool(AProjectile projectile)
+    {
+        projectile.gameObject.SetActive(false);
+        projectilePool.Enqueue(projectile);
+    }
+
+    public void DestroyPool()
+    {
+        if (projectilePool.Count > 0)
+            projectilePool = new();
+    }
+
+    public override void SwapIn()
+    {
+        GetComponent<SpriteRenderer>().enabled = true;
+    }
+
+    public override void SwapOut()
+    {
+        GetComponent<SpriteRenderer>().enabled = false;
     }
 }

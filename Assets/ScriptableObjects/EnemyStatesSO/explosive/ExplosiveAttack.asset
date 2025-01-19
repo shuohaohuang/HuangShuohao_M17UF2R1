@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d596639ea534d0e4881d8d396078cf7b, type: 3}
+  m_Name: ExplosiveAttack
+  m_EditorClassIdentifier: 
+  StatesToGo:
+  - {fileID: 11400000, guid: 3622f2992680d234bb085fba22eb435b, type: 2}
+  - {fileID: 11400000, guid: 1d968e6089501be489b86b8b21eb28cd, type: 2}
+  - {fileID: 11400000, guid: a84a081f9cccc22429c39f2883d70255, type: 2}
+  - {fileID: 11400000, guid: ba81c4625d6924448bb1ac5969a301da, type: 2}

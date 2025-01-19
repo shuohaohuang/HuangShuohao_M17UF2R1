@@ -4,53 +4,44 @@ using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public abstract class AMeleeItem : AItems, ITrackable
+public abstract class AMeleeItem : AItem, ITrackable
 {
-    [SerializeField]
     protected Vector2 direction;
 
-    [SerializeField]
     protected float range;
 
-    [SerializeField]
     protected float stunTime;
 
-    [SerializeField]
     protected float angryRate;
 
-    [SerializeField]
     protected float knockbackRate;
 
-    [SerializeField]
     protected float minDistance;
 
-    [SerializeField]
-    protected Collider2D itemCollider;
-
-    [SerializeField]
     protected Transform ItemOrigin;
-
-    [SerializeField]
-    protected float DetectionRadius;
 
     [SerializeField]
     protected Animator animator;
 
-    public override void Use()
-    {
-        if (!useAvaible)
-            return;
-        StartCoroutine(Cooldown());
-        animator.SetTrigger("ATTACK");
-        DetectColliders();
-    }
-
     protected override void InitializeStats()
     {
+        MeleeSO meleeSO = itemsSO as MeleeSO;
         ItemOrigin = transform.GetChild(0).GetComponentInChildren<Transform>();
         animator = transform.GetChild(0).GetComponentInChildren<Animator>();
-        // ItemOrigin.transform.localPosition = new Vector3(0, 0, 0);
-        Debug.Log("not implemented");
+
+        range = meleeSO.range;
+        stunTime = meleeSO.stunTime;
+        angryRate = meleeSO.angryRate;
+        knockbackRate = meleeSO.knockbackRate;
+        minDistance = meleeSO.minDistance;
+        price = meleeSO.price;
+        cd = meleeSO.cd;
+        alias = meleeSO.alias;
+        sprite = meleeSO.sprite;
+        onUseAudio = meleeSO.onUseAudio;
+
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = onUseAudio;
     }
 
     public void Track(Vector2 endPoint)
@@ -67,20 +58,31 @@ public abstract class AMeleeItem : AItems, ITrackable
     {
         Gizmos.color = Color.red;
         Vector3 position = ItemOrigin == null ? Vector3.zero : ItemOrigin.position;
-        Gizmos.DrawWireSphere(position, DetectionRadius);
+        Gizmos.DrawWireSphere(position, range);
     }
 
     public void DetectColliders()
     {
-        foreach (
-            Collider2D item in Physics2D.OverlapCircleAll(ItemOrigin.position, DetectionRadius)
-        )
+        audioSource.Play();
+        foreach (Collider2D item in Physics2D.OverlapCircleAll(ItemOrigin.position, range))
         {
             if (item.GetComponent<AEnemy>() is AEnemy enemy)
             {
                 enemy.GetStun(stunTime, angryRate);
-                enemy.GetKnockBack(knockbackRate, (Vector2)transform.position);
+                enemy.GetKnockBack(knockbackRate, (Vector2)ItemOrigin.position);
             }
         }
+    }
+
+    public override void SwapIn()
+    {
+        ItemOrigin.GetComponent<SpriteRenderer>().enabled = true;
+        animator.enabled = true;
+    }
+
+    public override void SwapOut()
+    {
+        ItemOrigin.GetComponent<SpriteRenderer>().enabled = false;
+        animator.enabled = false;
     }
 }

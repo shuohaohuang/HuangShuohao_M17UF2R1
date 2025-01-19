@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d9a786540c45dc4c9974e7186a7e507, type: 3}
+  m_Name: animals
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 257613490, guid: dfceec6893b52f8429fcc7fa8079b37c, type: 3}
+  - {fileID: -1857141085, guid: dfceec6893b52f8429fcc7fa8079b37c, type: 3}
+  - {fileID: 1848282140, guid: dfceec6893b52f8429fcc7fa8079b37c, type: 3}
+  - {fileID: -256305052, guid: dfceec6893b52f8429fcc7fa8079b37c, type: 3}
+  - {fileID: -188746272, guid: dfceec6893b52f8429fcc7fa8079b37c, type: 3}
+  - {fileID: 1275132733, guid: dfceec6893b52f8429fcc7fa8079b37c, type: 3}
+  - {fileID: -1799468403, guid: dfceec6893b52f8429fcc7fa8079b37c, type: 3}
+  - {fileID: -1219150066, guid: dfceec6893b52f8429fcc7fa8079b37c, type: 3}
+  - {fileID: 1784206945, guid: dfceec6893b52f8429fcc7fa8079b37c, type: 3}
+  - {fileID: -1549456758, guid: dfceec6893b52f8429fcc7fa8079b37c, type: 3}
+  - {fileID: 146829897, guid: dfceec6893b52f8429fcc7fa8079b37c, type: 3}
+  - {fileID: -1433128261, guid: dfceec6893b52f8429fcc7fa8079b37c, type: 3}
+  - {fileID: 485800896, guid: dfceec6893b52f8429fcc7fa8079b37c, type: 3}
+  - {fileID: -1195093728, guid: dfceec6893b52f8429fcc7fa8079b37c, type: 3}
+  - {fileID: 1786657671, guid: dfceec6893b52f8429fcc7fa8079b37c, type: 3}
+  - {fileID: 1646097960, guid: dfceec6893b52f8429fcc7fa8079b37c, type: 3}

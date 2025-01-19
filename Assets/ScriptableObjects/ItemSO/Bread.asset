@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7573675e5a3a81f4587bac47cc9e14e0, type: 3}
+  m_Name: Bread
+  m_EditorClassIdentifier: 
+  price: 10
+  cd: 0.5
+  minDistance: 0.5
+  alias: Bread
+  sprite: {fileID: 21300000, guid: c728868677dfad541b6543a1f2aec055, type: 3}
+  onUseAudio: {fileID: 8300000, guid: b448ce0c10c943944817044ab5b34434, type: 3}
+  Item: {fileID: 7762914304776969108, guid: cdc25ffd74f45054891de2965e76d548, type: 3}
+  stunTime: 1
+  angryRate: 1
+  knockbackRate: 2
+  range: 0.5

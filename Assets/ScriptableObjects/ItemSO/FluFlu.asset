@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe810c3ac1617e64b9042e37e71f315a, type: 3}
+  m_Name: FluFlu
+  m_EditorClassIdentifier: 
+  price: 20
+  cd: 0
+  minDistance: 1.5
+  alias: 
+  sprite: {fileID: -4464683919757446399, guid: ab32644ef25492d4abe885ccc27802f4, type: 3}
+  onUseAudio: {fileID: 8300000, guid: 88cf83bd58e5e8a478e4885ecf44950b, type: 3}
+  Item: {fileID: 2029025889429076159, guid: febbe23d46e53db4eaef00476350e4dd, type: 3}
+  stunTime: 0.5
+  angryRate: 0
+  range: 1
+  satiety: 0
+  capacity: 100
+  consumption: 25
+  refillTime: 10

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0d2fc4b3091bfb4e8d03696492871b0, type: 3}
+  m_Name: Grapes
+  m_EditorClassIdentifier: 
+  price: 10
+  cd: 0.5
+  minDistance: 1
+  alias: Grapes
+  sprite: {fileID: -3164809056393425246, guid: 2e55e7ad412bef545a4e26f83ea53dd7, type: 3}
+  onUseAudio: {fileID: 8300000, guid: b448ce0c10c943944817044ab5b34434, type: 3}
+  Item: {fileID: 532973557909625115, guid: fc9070f21fa1cc94bbe9ae73b2e9b8b2, type: 3}
+  satiety: 25
+  projectileSpeed: 10
+  projectile: {fileID: 7676220785664233229, guid: f2bf476200c445a4cacda0084a38e643, type: 3}

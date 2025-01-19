@@ -14,3 +14,6 @@ dotnet_diagnostic.IDE0041.severity = silent
 
 # UNT0008: Null propagation on Unity objects
 dotnet_diagnostic.UNT0008.severity = silent
+
+# CS8602: Dereference of a possibly null reference.
+dotnet_diagnostic.CS8602.severity = silent
