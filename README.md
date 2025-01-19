@@ -8,7 +8,7 @@ Los animalitos te atacarán de tres formas: persiguiéndote, escupiéndote, y d�
 
 - **Perseguir**: Ira a por ti a toda velocidad  
 ![Perseguir](Images/Perseguir.png)
-- **Cariñitos**: Tiene demasiado hambre para correr, se acercará lentamente y te avisará que te dará cariñitos  
+- **Cariñitos**: Tiene demasiado hambre para correr, se acercará lentamente y te avisará que te dará cariñitos
 ![Cariñitos](Images/Cariñitos.png)
 - **Escupir**: No confía mucho en ti y te escupirá desde lo lejos  
 ![Escupir](Images/Escupir.png)
